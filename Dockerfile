@@ -64,7 +64,6 @@ ADD management.xml /opt/amq/conf/
 
 ADD artemis.profile /opt/amq/conf
 
-ADD broker.xml /opt/amq/conf
 
 RUN sed -i "s/configure \$instanceDir/&\nif [ -n \"\${ARTEMIS_AUTH}\" ] ; then\n   userDetails=\"\${ARTEMIS_AUTH}\"\n   IFS=\",\" read -a individualUser <<< \$userDetails\n   for (( i=0; i<\${#individualUser[@]}; i++ )); do\n     IFS=\":\" read -a userSplit <<< \"\${individualUser[\$i]}\"\n      sh \${instanceDir}\/bin\/artemis user add --user \"\${userSplit[0]}\" --password \"\${userSplit[1]}\" --role \"\${userSplit[2]}\"\n   done\n fi\n /" /opt/amq/bin/launch.sh
 
@@ -77,4 +76,4 @@ WORKDIR /home/jboss
 
 	
 CMD ["/opt/amq/bin/launch.sh", "start"]
-#CMD ["/bin/bash"]
+
