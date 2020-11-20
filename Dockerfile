@@ -14,9 +14,9 @@
 #
 # ------------------------------------------------------------------------
 #
-# This is a Dockerfile for the amq-broker-7/amq-broker-77-openshift:7.7 image.
+# This is a Dockerfile for the amq-broker-7/amq-broker-76-openshift:7.6 image.
 
-FROM registry.redhat.io/amq7/amq-broker:latest
+FROM registry.redhat.io/amq7/amq-broker:7.6
 
 USER root
 
@@ -32,29 +32,29 @@ ENV \
     JBOSS_CONTAINER_JOLOKIA_MODULE="/opt/jboss/container/jolokia" \
     JBOSS_CONTAINER_S2I_CORE_MODULE="/opt/jboss/container/s2i/core/" \
     JBOSS_CONTAINER_UTIL_LOGGING_MODULE="/opt/jboss/container/util/logging/" \
-    JBOSS_IMAGE_NAME="amq-broker-7/amq-broker-77-openshift" \
-    JBOSS_IMAGE_VERSION="7.7" \
+    JBOSS_IMAGE_NAME="amq-broker-7/amq-broker-76-openshift" \
+    JBOSS_IMAGE_VERSION="7.6" \
     JOLOKIA_VERSION="1.6.2" \
     S2I_SOURCE_DEPLOYMENTS_FILTER="*" 
 
 # Labels
 LABEL \
       com.redhat.component="amq-broker-openshift-container"  \
-      description="Red Hat AMQ Broker 7.7.0 OpenShift container image"  \
+      description="Red Hat AMQ Broker 7.6.0 OpenShift container image"  \
       io.cekit.version="2.2.5"  \
       io.fabric8.s2i.version.jolokia="1.6.2-redhat-00002"  \
       io.k8s.description="A reliable messaging platform that supports standard messaging paradigms for a real-time enterprise."  \
-      io.k8s.display-name="Red Hat AMQ Broker 7.7.0"  \
+      io.k8s.display-name="Red Hat AMQ Broker 7.6.0"  \
       io.openshift.expose-services="8778/tcp:uec,5671/tcp:amqps,5672/tcp:amqp,1883/tcp:mqtt,8161/tcp:patrol-snmp,9876/tcp:sd,7800/tcp:asr,8888/tcp:ddi-tcp-1"  \
       io.openshift.s2i.destination="/tmp"  \
       io.openshift.s2i.scripts-url="image:///usr/local/s2i"  \
       io.openshift.tags="messaging,amq,java,jboss,xpaas"  \
       maintainer="rkieley@redhat.com"  \
-      name="amq-broker-7/amq-broker-77-openshift"  \
+      name="amq-broker-7/amq-broker-76-openshift"  \
       org.concrt.version="2.2.5"  \
       org.jboss.container.deployments-dir="/deployments"  \
-      summary="Red Hat AMQ Broker 7.7.0 OpenShift container image"  \
-      version="7.7" 
+      summary="Red Hat AMQ Broker 7.6.0 OpenShift container image"  \
+      version="7.6" 
 
 # Exposed ports
 EXPOSE 8778 5671 5672 1883 8161 9876 61613 61612 61616 61617 7800 8888
